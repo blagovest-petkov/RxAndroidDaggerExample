@@ -26,7 +26,7 @@
             android:value="true" />
 
         <activity
-            android:name=".MyStarsRepos"
+            android:name=".StarsReposActivity"
             android:label="@string/title_activity_my_stars_repos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

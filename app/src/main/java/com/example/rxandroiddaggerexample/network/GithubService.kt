@@ -7,6 +7,6 @@ import retrofit2.http.Path
 
 interface GithubService {
 
-    @GET("user/{user}/starred")
+    @GET("users/{user}/starred")
     fun getStarredRepos(@Path("user") userName:String):Observable<ArrayList<Repo>>
 }

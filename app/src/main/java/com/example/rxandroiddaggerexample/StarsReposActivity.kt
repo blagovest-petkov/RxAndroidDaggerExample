@@ -2,6 +2,8 @@ package com.example.rxandroiddaggerexample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxandroiddaggerexample.adapter.GithubRepoAdapter
 import com.example.rxandroiddaggerexample.model.Repo
 import com.example.rxandroiddaggerexample.network.GithubApiClient
@@ -13,7 +15,7 @@ class StarsReposActivity : AppCompatActivity() {
     //----------------------------------------------------------------------------------------------
     // Fields
     //----------------------------------------------------------------------------------------------
-    private lateinit var adapter:GithubRepoAdapter;
+    private lateinit var adapter: GithubRepoAdapter;
 
     //----------------------------------------------------------------------------------------------
     // Lifecycle
@@ -24,16 +26,15 @@ class StarsReposActivity : AppCompatActivity() {
 
         adapter = GithubRepoAdapter()
         rvStarsRepo.adapter = adapter
-
         getStarredRepos()
     }
 
-    fun getStarredRepos() {
+    private fun getStarredRepos() {
         GithubApiClient.githubService.getStarredRepos("mrabelwahed")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                it -> adapter.addData(it)
+            .subscribe { it ->
+                adapter.addData(it)
             }
 
     }

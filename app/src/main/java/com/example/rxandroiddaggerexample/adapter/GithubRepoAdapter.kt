@@ -3,6 +3,7 @@ package com.example.rxandroiddaggerexample.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rxandroiddaggerexample.R
 import com.example.rxandroiddaggerexample.model.Repo
@@ -12,13 +13,13 @@ class GithubRepoAdapter : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHol
     //----------------------------------------------------------------------------------------------
     // Fields
     //----------------------------------------------------------------------------------------------
-    val data = ArrayList<Repo>()
+    private val data = ArrayList<Repo>()
 
     //----------------------------------------------------------------------------------------------
     // Lifecycle
     //----------------------------------------------------------------------------------------------
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StarRepoViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_star, parent)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_star, parent, false)
 
         return StarRepoViewHolder(view)
     }
@@ -28,17 +29,18 @@ class GithubRepoAdapter : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHol
     }
 
     override fun onBindViewHolder(holder: StarRepoViewHolder, position: Int) {
-        val repo = data[position]
+        val repo: Repo = data[position]
         holder.repoName.text = repo.name
-        holder.repoDesc.text = repo.desc
-        holder.repoLng.text = repo.lng
+        holder.repoDesc.text = repo.description
+        holder.repoLng.text = repo.language
+        holder.repoStarsCount.text = repo.starCount.toString()
     }
 
     //----------------------------------------------------------------------------------------------
     // Public
     //----------------------------------------------------------------------------------------------
     fun addData(data: ArrayList<Repo>) {
-        data.addAll(data)
+        this.data.addAll(data)
         notifyDataSetChanged()
     }
 
@@ -46,9 +48,9 @@ class GithubRepoAdapter : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHol
     // Inner class
     //----------------------------------------------------------------------------------------------
     class StarRepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val repoName = view.tvStarRepoName
-        val repoDesc = view.tvStarRepoDesc
-        val repoLng = view.tvStarRepoLng
-        val repoStarsCount = view.tvStarRepoStarsCount
+        val repoName: TextView = view.tvStarRepoName
+        val repoDesc: TextView = view.tvStarRepoDesc
+        val repoLng: TextView = view.tvStarRepoLng
+        val repoStarsCount: TextView = view.tvStarRepoStarsCount
     }
 }

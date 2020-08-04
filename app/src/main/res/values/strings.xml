@@ -8,4 +8,5 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="mystars">MyStars</string>
     <string name="hello_rxjava">Hello RxJava!</string>
+    <string name="no_description">No description</string>
 </resources>

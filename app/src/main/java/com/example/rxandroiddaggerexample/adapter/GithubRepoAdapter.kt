@@ -1,5 +1,7 @@
 package com.example.rxandroiddaggerexample.adapter
 
+import android.content.Context
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +11,15 @@ import com.example.rxandroiddaggerexample.R
 import com.example.rxandroiddaggerexample.model.Repo
 import kotlinx.android.synthetic.main.item_star.view.*
 
-class GithubRepoAdapter : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHolder>() {
+class GithubRepoAdapter(val context: Context) : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHolder>() {
     //----------------------------------------------------------------------------------------------
     // Fields
     //----------------------------------------------------------------------------------------------
     private val data = ArrayList<Repo>()
+
+    //----------------------------------------------------------------------------------------------
+    // Instance creation
+    //----------------------------------------------------------------------------------------------
 
     //----------------------------------------------------------------------------------------------
     // Lifecycle
@@ -31,7 +37,9 @@ class GithubRepoAdapter : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHol
     override fun onBindViewHolder(holder: StarRepoViewHolder, position: Int) {
         val repo: Repo = data[position]
         holder.repoName.text = repo.name
-        holder.repoDesc.text = repo.description
+        repo.description?.let { holder.repoDesc.text = repo.description } ?: run {
+            holder.repoDesc.text = context.getString(R.string.no_description)
+        }
         holder.repoLng.text = repo.language
         holder.repoStarsCount.text = repo.starCount.toString()
     }

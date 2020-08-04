@@ -3,9 +3,7 @@ package com.example.rxandroiddaggerexample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxandroiddaggerexample.adapter.GithubRepoAdapter
-import com.example.rxandroiddaggerexample.model.Repo
 import com.example.rxandroiddaggerexample.network.GithubApiClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -24,8 +22,9 @@ class StarsReposActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stars_repos)
 
-        adapter = GithubRepoAdapter()
+        adapter = GithubRepoAdapter(this)
         rvStarsRepo.adapter = adapter
+        rvStarsRepo.addItemDecoration(DividerItemDecoration(rvStarsRepo.getContext(), DividerItemDecoration.VERTICAL))
         getStarredRepos()
     }
 

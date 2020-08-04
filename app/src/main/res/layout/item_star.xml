@@ -2,26 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/tvStarRepoName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvStarRepoDesc"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tvStarRepoLng"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tvStarRepoStarsCount"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_baseline_stars_24"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
 
 </LinearLayout>

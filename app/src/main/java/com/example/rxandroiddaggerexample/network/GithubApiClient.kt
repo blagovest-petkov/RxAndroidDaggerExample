@@ -11,7 +11,7 @@ object GithubApiClient {
     //----------------------------------------------------------------------------------------------
     // Constants
     //----------------------------------------------------------------------------------------------
-    const val BASE_URL = "https://api.github.com"
+    private const val BASE_URL = "https://api.github.com"
 
     //----------------------------------------------------------------------------------------------
     // Fields
@@ -25,13 +25,13 @@ object GithubApiClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val okHttpClient = OkHttpClient.Builder()
+        val okHttpClient: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
             .build()
 
-        val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
+        val retrofit: Retrofit = Retrofit.Builder().baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

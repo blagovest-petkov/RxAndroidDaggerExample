@@ -11,13 +11,13 @@ import io.reactivex.schedulers.Schedulers
 
 class RepoViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
-    private val repoLiveData = MutableLiveData<List<Repo>>()
+    val repoLiveData = MutableLiveData<List<Repo>>()
 
     fun getMyStarredRepos(username: String) {
         val repoDisposable: Disposable = GithubApiClient.githubService.getStarredRepos(username)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { it -> repoLiveData.value = it }
+            .subscribe { repoLiveData.value = it }
 
         compositeDisposable.add(repoDisposable)
     }

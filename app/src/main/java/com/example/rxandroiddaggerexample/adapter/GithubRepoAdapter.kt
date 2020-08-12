@@ -47,7 +47,7 @@ class GithubRepoAdapter(val context: Context) : RecyclerView.Adapter<GithubRepoA
     //----------------------------------------------------------------------------------------------
     // Public
     //----------------------------------------------------------------------------------------------
-    fun addData(data: ArrayList<Repo>) {
+    fun addData(data: List<Repo>) {
         this.data.addAll(data)
         notifyDataSetChanged()
     }

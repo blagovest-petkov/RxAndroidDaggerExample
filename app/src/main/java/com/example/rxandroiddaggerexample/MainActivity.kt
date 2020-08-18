@@ -14,8 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-
-    public fun openReposClickListener(view: View) {
+    fun openReposClickListener(view: View) {
         startActivity(Intent(applicationContext, StarsReposActivity::class.java))
     }
 }

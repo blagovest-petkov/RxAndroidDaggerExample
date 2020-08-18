@@ -1,14 +1,13 @@
 package com.example.rxandroiddaggerexample.adapter
 
 import android.content.Context
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rxandroiddaggerexample.R
-import com.example.rxandroiddaggerexample.model.Repo
+import com.example.rxandroiddaggerexample.db.Repo
 import kotlinx.android.synthetic.main.item_star.view.*
 
 class GithubRepoAdapter(val context: Context) : RecyclerView.Adapter<GithubRepoAdapter.StarRepoViewHolder>() {

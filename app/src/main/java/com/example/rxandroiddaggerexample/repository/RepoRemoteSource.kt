@@ -8,7 +8,4 @@ object RepoRemoteSource : RepoDataSource {
     override fun getRepos(username: String): Observable<List<Repo>> {
         return GithubApiClient.githubService.getStarredRepos(username)
     }
-
-    override fun saveRepos(repos: List<Repo>) {
-    }
 }

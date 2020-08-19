@@ -36,9 +36,7 @@ class GithubRepoAdapter(val context: Context) : RecyclerView.Adapter<GithubRepoA
     override fun onBindViewHolder(holder: StarRepoViewHolder, position: Int) {
         val repo: Repo = data[position]
         holder.repoName.text = repo.name
-        repo.description?.let { holder.repoDesc.text = repo.description } ?: run {
-            holder.repoDesc.text = context.getString(R.string.no_description)
-        }
+        holder.repoDesc.text = repo.description ?: context.getString(R.string.no_description)
         holder.repoLng.text = repo.language
         holder.repoStarsCount.text = repo.starCount.toString()
     }

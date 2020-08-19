@@ -1,9 +1,10 @@
-package com.example.rxandroiddaggerexample
+package com.example.rxandroiddaggerexample.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.rxandroiddaggerexample.R
 
 class MainActivity : AppCompatActivity() {
     //----------------------------------------------------------------------------------------------

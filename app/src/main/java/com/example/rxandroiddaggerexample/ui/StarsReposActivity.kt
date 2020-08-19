@@ -1,15 +1,13 @@
-package com.example.rxandroiddaggerexample
+package com.example.rxandroiddaggerexample.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.rxandroiddaggerexample.R
 import com.example.rxandroiddaggerexample.adapter.GithubRepoAdapter
-import com.example.rxandroiddaggerexample.network.GithubApiClient
 import com.example.rxandroiddaggerexample.viewmodel.RepoViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_stars_repos.*
 
 class StarsReposActivity : AppCompatActivity() {

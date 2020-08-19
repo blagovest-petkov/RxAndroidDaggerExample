@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import io.reactivex.Observable
 
 @Dao
 interface RepoDao {
@@ -14,4 +13,7 @@ interface RepoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(repos: List<Repo>)
+
+    @Query("DELETE FROM repo")
+    fun deleteAll()
 }
